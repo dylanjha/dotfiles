@@ -1,0 +1,84 @@
+alias zconfig="vim ~/.zshrc"
+alias vimconfig="vim ~/.vimrc"
+alias vsrc="source ~/.vimrc"
+alias zsrc="source ~/.zshrc"
+
+# Safely delete anything
+# alias rm="trash"
+
+alias rc="bin/rails c"
+alias rs="bin/rails s"
+
+alias cat="bat"
+alias herkou="heroku"
+alias heorku="heroku"
+alias hrc="heroku run console"
+
+alias mxm="cd ~/code/@muxinc/meta-build"
+alias mxda="cd ~/code/@muxinc/meta-build/dashboard-api"
+alias mxdc="cd ~/code/@muxinc/dashboard-client"
+
+alias git="hub"
+alias g="git"
+alias ga="git add ."
+alias gap="git add -p"
+alias gpr="git pull --rebase"
+alias gm="git checkout master"
+alias gl="git log --pretty"
+alias glo="git log --oneline"
+alias gca="g commit --amend"
+alias gsu="git push --set-upstream origin master"
+
+alias ber="bin/rake"
+alias beg="bundle exec guard"
+alias mig='bin/rake db:migrate'
+alias rollb='bin/rake db:rollback'
+
+alias p="ping google.com"
+
+alias yt="yarn test"
+alias sha="git rev-parse HEAD | xargs echo && git rev-parse HEAD | tr -d '\n' | pbcopy && echo 'copied to clipboard'"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true"
+ 
+bindkey '^R' history-incremental-search-backward
+ 
+# Fixes slow git completion
+__git_files () {
+    _wanted files expl 'local files' _files
+}
+
+# HISTORY
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/Dropbox/code/shell_history
+#setopt append_history no_inc_append_history no_share_history
+setopt share_history
+
+export EDITOR='Vim'
+export BUNDLER_EDITOR='code'
+
+export PATH=/usr/local/bin:$PATH
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH=$PATH:~/code/@dylanjha/code_scripts
+export PATH=$PATH:$HOME/.yarn/bin
+
+autoload -U promptinit; promptinit
+prompt pure
+
+. ~/code/@dylanjha/dotfiles/code_scripts/key-bindings.sh
+. ~/code/@dylanjha/dotfiles/code_scripts/z.sh
+
+source ~/code/@dylanjha/dotfiles/zshell/git-completion.bash
+fpath=(~/.zsh $fpath)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dylanjhaveri/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dylanjhaveri/code/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dylanjhaveri/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dylanjhaveri/code/google-cloud-sdk/completion.zsh.inc'; fi
+
+# fnm
+eval "$(fnm env --multi)"

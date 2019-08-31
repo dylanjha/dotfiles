@@ -1,0 +1,180 @@
+"/ Colors ---------------
+" colorscheme Tomorrow " 
+syntax enable
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'w0rp/ale'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'danro/rename.vim'
+Plug 'ap/vim-buftabline'
+Plug 'google/vim-searchindex'
+Plug 'elixir-editors/vim-elixir'
+Plug 'leafgarland/typescript-vim'
+Plug 'ajh17/VimCompletesMe'
+
+" Initialize plugin system
+call plug#end()
+
+set tabstop=2		      " number of visual spaces per TAB
+set softtabstop=2 	  " number of spaces when editing
+set shiftwidth=2      " line and col numbers
+set expandtab		      " tabs are spaces
+set number            " show line numbers
+set relativenumber    " relative line numbers
+set showcmd           " show command in bottom bar
+set wildmenu          " visual autocomplete for command menu
+set lazyredraw        " redraw only when we need to
+set showmatch         " highlight matching [{()}]
+set ruler             " line and col numbers
+set visualbell        " visual bell- don't make sound
+set t_vb=             " visual bell- don't make sound
+set autoindent        " automatic indenting for buffers not associated with a filetype
+set backspace=indent,eol,start " proper backspace behavior
+
+" 2018-09-04 djhaveri
+" https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+" for some reason, vim's new regex engine is super slow in rails controllers
+"    * seems to be ONLY rails controllers
+"    * it makes navigating lines up and down unbearably slow 
+set regexpengine=1
+
+" Search ----------------
+set incsearch         " search as characters are entered
+set hlsearch          " highlight matches
+set ignorecase        " ignore case for search
+" ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Folding ------------- 
+set foldenable        " enable folding
+set foldlevelstart=10 " open most folds by default
+"set foldnestmax=10    " 10 nested fold max
+set foldmethod=indent " fold based on indent level
+
+" CtrlP settings (fuzzy file) 
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_user_command = 'ag %s --ignore-dir=.git -l --nocolor --hidden -g ""'
+
+" Ale
+let g:ale_linters_explicit = 1
+let g:ale_fixers = {}
+let g:ale_linters = {}
+let g:ale_fixers.elixir = ['mix_format']
+let g:ale_fix_on_save = 1
+let g:ale_enabled = 1
+
+" NERDTree don't open by default
+let g:NERDTreeHijackNetrw=0
+
+" autochdir so that file completion works correctly
+" set autochdir
+
+set hidden
+" Remapping stuff ---------
+let mapleader=","
+" shortcut for escape key (insert mode)
+inoremap jk <esc>
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+" change current directory for current file
+nnoremap <leader>cd :cd %:p:h<CR>
+" toggle ALE (fixers and linters)
+nnoremap <leader>at :call At()<CR>
+" buffer tab navigation
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprev<CR>
+" replace trailing whitespace
+nnoremap <leader>w :%s/\s\+$//<CR>
+" clear CtrlPCache
+nnoremap <leader>c :ClearCtrlPCache<CR>
+" open up explore (file tree)
+nnoremap <leader>e :Explore<CR>
+" clear all buffers
+nnoremap <leader>ca :bufdo Bclose!<CR>
+" copy current file with new name
+nnoremap <leader>cf :saveas %:p:h<CR>
+" toggle paste
+nnoremap <leader>tp :call Tp()<CR>
+" toggle insert debugger line
+nnoremap <leader>dl :call InsertDebugLog()<CR>
+" toggle number and relative number
+nnoremap <leader>tn :call Tn()<CR>
+" toggle wrap
+nnoremap <leader>tw :call Tw()<CR>
+" toggle ignorecase
+nnoremap <leader>tic :call Tic()<CR>
+" replace existing tabs with spaces
+nnoremap <leader>rt :%s/\t/  /g<CR>
+" close window
+nnoremap <leader>q :q!<CR>
+" close all other windows
+nnoremap <leader>o :only!<CR>
+" save and close window
+nnoremap <leader>wq :q!<CR>
+" open NERDTree to current file
+nnoremap <leader>r :NERDTreeFind<CR>
+" make a 'WIP' commit
+nnoremap <leader>gw :!git add . && git commit -m 'WIP'<cr>
+" use tab for vim's built-in completion
+imap <Tab> <C-P>
+" control k to toggle NERDTree
+map <C-k> :NERDTreeToggle<CR>
+
+
+" Functions -----------------------
+
+" toggle number and relativenumber
+function! Tn()
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+" toggle wrap
+function! Tw()
+  set wrap!
+endfunc
+
+" toggle paste
+function! Tp()
+  set paste!
+endfunc
+
+" toggle ignorecase
+function! Tic()
+  set ignorecase!
+endfunc
+
+" copy file in the same directory
+function! Cf(name)
+  echom "Saving new file"
+  execute "saveas %:p:h/" . a:name
+endfunc
+
+function! At()
+  if(g:ale_fix_on_save == 1)
+    let g:ale_fix_on_save = 0
+  else
+    let g:ale_fix_on_save = 1
+  endif
+  :ALEToggle
+endfunc
+
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 
+autocmd BufNewFile,BufReadPost *.jade setl shiftwidth=2 
+autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 
+autocmd BufNewFile,BufReadPost *.html.erb setl shiftwidth=2 
+autocmd BufNewFile,BufReadPost *.rake setl shiftwidth=2 
+autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2 
+autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 

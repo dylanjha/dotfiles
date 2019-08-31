@@ -1,0 +1,17 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dylanjha/dotfiles",
+  "author": "Dylan Jhaveri",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "archive-dotfiles": "node ./scripts/archive_dotfiles.js",
+    "recreate-dotfiles": "node ./scripts/recreate_dotfiles.js"
+  },
+  "dependencies": {
+    "execa": "^2.0.4",
+    "listr": "^0.14.3"
+  }
+}
