@@ -16,7 +16,6 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 Plug 'ajh17/VimCompletesMe'
 
-" Initialize plugin system
 call plug#end()
 
 set tabstop=2		      " number of visual spaces per TAB
