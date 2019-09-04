@@ -34,6 +34,8 @@ alias beg="bundle exec guard"
 alias mig='bin/rake db:migrate'
 alias rollb='bin/rake db:rollback'
 
+alias archive-dotfiles="cd ~/code/@dylanjha/dotfiles && yarn archive-dotfiles"
+
 alias p="ping google.com"
 
 alias yt="yarn test"
