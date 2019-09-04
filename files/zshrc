@@ -1,6 +1,5 @@
 alias zconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
-alias vsrc="source ~/.vimrc"
 alias zsrc="source ~/.zshrc"
 
 # Safely delete anything

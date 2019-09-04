@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "archive-dotfiles": "node ./scripts/archive_dotfiles.js",
-    "recreate-dotfiles": "node ./scripts/recreate_dotfiles.js"
+    "recreate-dotfiles": "node ./scripts/recreate_dotfiles.js",
+    "setup": "node ./scripts/setup.js"
   },
   "dependencies": {
     "execa": "^2.0.4",

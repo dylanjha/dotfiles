@@ -33,6 +33,8 @@ set visualbell        " visual bell- don't make sound
 set t_vb=             " visual bell- don't make sound
 set autoindent        " automatic indenting for buffers not associated with a filetype
 set backspace=indent,eol,start " proper backspace behavior
+set undofile
+set undodir=~/.vim/undodir
 
 " 2018-09-04 djhaveri
 " https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
