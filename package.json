@@ -9,6 +9,8 @@
   "scripts": {
     "archive-dotfiles": "node ./scripts/archive_dotfiles.js",
     "recreate-dotfiles": "node ./scripts/recreate_dotfiles.js",
+    "archive-brew-cask-list": "node ./scripts/archive_brew_cask_list.js",
+    "brew-cask-install-all": "node ./scripts/brew_cask_install_all.js",
     "setup": "node ./scripts/setup.js"
   },
   "dependencies": {
