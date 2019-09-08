@@ -62,9 +62,11 @@ export BUNDLER_EDITOR='code'
 
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH=$PATH:~/code/@dylanjha/code_scripts
 export PATH=$PATH:$HOME/.yarn/bin
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 autoload -U promptinit; promptinit
 prompt pure
