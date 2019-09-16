@@ -50,3 +50,5 @@
 	helper = osxkeychain
 [fetch]
 	prune = true
+[branch]
+	sort = -committerdate
