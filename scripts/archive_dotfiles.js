@@ -3,9 +3,9 @@ const Listr = require('listr')
 const FILES = require('../src/files')
 
 const cmds = FILES.map((file) => ({
-    title: `Remove file ${file.src}`,
-    task: () => execa.command(`rm -f ./files/${file.name}`)
-  }))
+  title: `Remove file ${file.src}`,
+  task: () => execa.command(`rm -f ./files/${file.name}`)
+}))
 
 cmds.push({
   title: "Create files/ dir",
@@ -16,7 +16,14 @@ cmds.push({
 FILES.forEach((file) => {
   cmds.push({
     title: `Copy ${file.src}`,
-    task: () => execa.command(`cp ${file.src} ./files/${file.name}`, {shell: true})
+    task: () => {
+      if (file.name === 'gitconfig') {
+        // replace gitconfig signing_key with xxxx
+        execa.command(`sed -e "s/signingkey[[:space:]]=[[:space:]].*$/signingkey = xxxxxxx/" ${file.src} > ./files/${file.name}`, {shell: true})
+      } else {
+        execa.command(`cp ${file.src} ./files/${file.name}`, {shell: true})
+      }
+    }
   })
 })
 

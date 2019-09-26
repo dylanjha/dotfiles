@@ -1,6 +1,7 @@
 [user]
     name = Dylan Jhaveri
     email = dylanjhaveri@gmail.com
+	signingkey = xxxxxxx
 
 [color]
     ui = auto
@@ -52,3 +53,5 @@
 	prune = true
 [branch]
 	sort = -committerdate
+[commit]
+	gpgsign = true
