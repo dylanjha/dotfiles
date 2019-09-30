@@ -73,6 +73,7 @@ prompt pure
 
 . ~/code/@dylanjha/dotfiles/code_scripts/key-bindings.sh
 . ~/code/@dylanjha/dotfiles/code_scripts/z.sh
+. ~/code/@dylanjha/dotfiles/zshell/dotenv.plugin.zsh
 
 source ~/code/@dylanjha/dotfiles/zshell/git-completion.bash
 fpath=(~/.zsh $fpath)
