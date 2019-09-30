@@ -14,7 +14,7 @@ Plug 'ap/vim-buftabline'
 Plug 'google/vim-searchindex'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
-" Plug 'ajh17/VimCompletesMe'
+Plug 'ajh17/VimCompletesMe'
 
 call plug#end()
 
