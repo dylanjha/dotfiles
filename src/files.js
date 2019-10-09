@@ -3,4 +3,5 @@ module.exports = [
   {src: "~/.zshrc", name: "zshrc"},
   {src: "~/.gitconfig", name: "gitconfig"},
   {src: "~/.gitconfig_global", name: "gitconfig_global"},
+  {src: "~/.gitignore_global", name: "gitignore_global"},
 ]

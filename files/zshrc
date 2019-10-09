@@ -71,6 +71,8 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 autoload -U promptinit; promptinit
 prompt pure
 
+ZSH_DOTENV_FILE=.env-dylan
+
 . ~/code/@dylanjha/dotfiles/code_scripts/key-bindings.sh
 . ~/code/@dylanjha/dotfiles/code_scripts/z.sh
 . ~/code/@dylanjha/dotfiles/zshell/dotenv.plugin.zsh
