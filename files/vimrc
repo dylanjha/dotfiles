@@ -122,6 +122,8 @@ nnoremap <leader>o :only!<CR>
 nnoremap <leader>wq :q!<CR>
 " open NERDTree to current file
 nnoremap <leader>r :NERDTreeFind<CR>
+" pretty print json
+nnoremap <leader>jpp :%!python -m json.tool<CR>
 " make a 'WIP' commit
 nnoremap <leader>gw :!git add . && git commit -m 'WIP'<cr>
 " use tab for vim's built-in completion
