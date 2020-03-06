@@ -43,7 +43,7 @@ alias sha="git rev-parse HEAD | xargs echo && git rev-parse HEAD | tr -d '\n' | 
 alias mvs="mv config/dev.secret.exs config/dev.secret.exs.hold && echo 'moved dev.secret.exs to dev.secret.exs.hold'"
 alias mvb="mv config/dev.secret.exs.hold config/dev.secret.exs && echo 'moved dev.secret.exs back'"
 
-alias ls="ls -1"
+alias ls="ls -a -1"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"

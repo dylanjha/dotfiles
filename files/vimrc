@@ -65,9 +65,10 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_user_command = 'ag %s --ignore-dir=.git -l --nocolor --hidden -g ""'
 
 " Ale
-let g:ale_linters_explicit = 1
+" let g:ale_linters_explicit = 1
 let g:ale_fixers = {}
 let g:ale_linters = {}
+let g:ale_linters.javascript = ['eslint']
 let g:ale_fixers.elixir = ['mix_format']
 let g:ale_fix_on_save = 1
 let g:ale_enabled = 1
