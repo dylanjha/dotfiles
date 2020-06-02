@@ -1,7 +1,6 @@
 alias zconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias zsrc="source ~/.zshrc"
-
 # Safely delete anything
 # alias rm="trash"
 
@@ -9,6 +8,8 @@ alias rc="bin/rails c"
 alias rs="bin/rails s"
 
 alias cat="bat"
+alias ccat="/bin/cat"
+
 alias herkou="heroku"
 alias heorku="heroku"
 alias hrc="heroku run console"
@@ -37,7 +38,6 @@ alias archive-dotfiles="cd ~/code/@dylanjha/dotfiles && yarn archive-dotfiles"
 
 alias p="ping google.com"
 
-alias yt="yarn test"
 alias sha="git rev-parse HEAD | xargs echo && git rev-parse HEAD | tr -d '\n' | pbcopy && echo 'copied to clipboard'"
 
 alias mvs="mv config/dev.secret.exs config/dev.secret.exs.hold && echo 'moved dev.secret.exs to dev.secret.exs.hold'"
@@ -47,9 +47,9 @@ alias ls="ls -a -1"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
- 
+
 bindkey '^R' history-incremental-search-backward
- 
+
 # Fixes slow git completion
 __git_files () {
     _wanted files expl 'local files' _files
@@ -65,12 +65,15 @@ setopt share_history
 export EDITOR='Vim'
 export BUNDLER_EDITOR='code'
 
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:~/code/@dylanjha/code_scripts
-export PATH=$PATH:$HOME/.yarn/bin
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:~/code/@dylanjha/code_scripts"
+export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/Library/Android/sdk/emulator"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

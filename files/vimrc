@@ -1,5 +1,5 @@
 "/ Colors ---------------
-" colorscheme Tomorrow " 
+" colorscheme Tomorrow "
 syntax enable
 
 call plug#begin('~/.vim/plugged')
@@ -14,6 +14,7 @@ Plug 'ap/vim-buftabline'
 Plug 'google/vim-searchindex'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
@@ -40,7 +41,7 @@ set undodir=~/.vim/undodir
 " https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
 " for some reason, vim's new regex engine is super slow in rails controllers
 "    * seems to be ONLY rails controllers
-"    * it makes navigating lines up and down unbearably slow 
+"    * it makes navigating lines up and down unbearably slow
 set regexpengine=1
 
 " Search ----------------
@@ -52,13 +53,13 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" Folding ------------- 
+" Folding -------------
 set foldenable        " enable folding
 set foldlevelstart=10 " open most folds by default
 "set foldnestmax=10    " 10 nested fold max
 set foldmethod=indent " fold based on indent level
 
-" CtrlP settings (fuzzy file) 
+" CtrlP settings (fuzzy file)
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'r'
@@ -175,10 +176,10 @@ function! At()
   :ALEToggle
 endfunc
 
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 
-autocmd BufNewFile,BufReadPost *.jade setl shiftwidth=2 
-autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 
-autocmd BufNewFile,BufReadPost *.html.erb setl shiftwidth=2 
-autocmd BufNewFile,BufReadPost *.rake setl shiftwidth=2 
-autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2 
-autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2
+autocmd BufNewFile,BufReadPost *.jade setl shiftwidth=2
+autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2
+autocmd BufNewFile,BufReadPost *.html.erb setl shiftwidth=2
+autocmd BufNewFile,BufReadPost *.rake setl shiftwidth=2
+autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2
+autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2
