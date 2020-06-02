@@ -14,7 +14,6 @@ Plug 'ap/vim-buftabline'
 Plug 'google/vim-searchindex'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
@@ -183,3 +182,4 @@ autocmd BufNewFile,BufReadPost *.html.erb setl shiftwidth=2
 autocmd BufNewFile,BufReadPost *.rake setl shiftwidth=2
 autocmd BufNewFile,BufReadPost *.rb setl shiftwidth=2
 autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2
+autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript
