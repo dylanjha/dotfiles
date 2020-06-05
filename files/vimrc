@@ -72,6 +72,7 @@ let g:ale_linters.javascript = ['eslint']
 let g:ale_fixers.elixir = ['mix_format']
 let g:ale_fix_on_save = 1
 let g:ale_enabled = 1
+let g:ale_set_highlights = 0
 
 " NERDTree don't open by default
 let g:NERDTreeHijackNetrw=0
@@ -131,6 +132,9 @@ nnoremap <leader>gw :!git add . && git commit -m 'WIP'<cr>
 imap <Tab> <C-P>
 " control k to toggle NERDTree
 map <C-k> :NERDTreeToggle<CR>
+" toggle between ale errors/warnings with ctrl k and ctrl j
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 " Functions -----------------------
