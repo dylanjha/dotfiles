@@ -14,20 +14,9 @@ alias herkou="heroku"
 alias heorku="heroku"
 alias hrc="heroku run console"
 
-alias mxm="cd ~/code/@muxinc/meta-build"
-alias mxda="cd ~/code/@muxinc/meta-build/dashboard-api"
-alias mxdc="cd ~/code/@muxinc/dashboard-client"
-
 alias git="hub"
 alias g="git"
-alias ga="git add ."
-alias gap="git add -p"
-alias gpr="git pull --rebase"
-alias gm="git checkout master"
 alias gl="git log --pretty"
-alias glo="git log --oneline"
-alias gca="g commit --amend"
-alias gsu="git push --set-upstream origin master"
 
 alias ber="bin/rake"
 alias beg="bundle exec guard"
@@ -38,6 +27,7 @@ alias archive-dotfiles="cd ~/code/@dylanjha/dotfiles && yarn archive-dotfiles"
 
 alias p="ping google.com"
 
+# copy last git commit SHA to the clipboard
 alias sha="git rev-parse HEAD | xargs echo && git rev-parse HEAD | tr -d '\n' | pbcopy && echo 'copied to clipboard'"
 
 alias mvs="mv config/dev.secret.exs config/dev.secret.exs.hold && echo 'moved dev.secret.exs to dev.secret.exs.hold'"
@@ -92,10 +82,14 @@ fpath=(~/.zsh $fpath)
 
 # fnm
 eval "$(fnm env --multi)"
+export GPG_TTY=$(tty)
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dylanjhaveri/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dylanjhaveri/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/dylanjhaveri/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dylanjhaveri/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/dylanjhaveri/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dylanjhaveri/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-export GPG_TTY=$(tty)
+if [ -f '/Users/dylanjhaveri/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dylanjhaveri/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Use python3.7 for google cloud SDK b/c 3.8 is broken
+# https://github.com/GoogleCloudPlatform/gsutil/issues/961
+export CLOUDSDK_PYTHON=/usr/local/opt/python@3.7/bin/python3
