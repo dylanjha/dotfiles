@@ -33,6 +33,9 @@ alias sha="git rev-parse HEAD | xargs echo && git rev-parse HEAD | tr -d '\n' | 
 alias mvs="mv config/dev.secret.exs config/dev.secret.exs.hold && echo 'moved dev.secret.exs to dev.secret.exs.hold'"
 alias mvb="mv config/dev.secret.exs.hold config/dev.secret.exs && echo 'moved dev.secret.exs back'"
 
+# reset core audio often have to use this after lauching the Xcode simulator
+alias ra="sudo kill -9 `ps -A | grep -Fa 'sbin/coreaudiod' | head -n 1 | awk '{print $1}'`"
+
 alias ls="ls -a -1"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
